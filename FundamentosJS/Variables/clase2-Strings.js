@@ -1,0 +1,10 @@
+var nombre = 'Daniel'
+var apellido = 'Cornelio'
+var nombreEnMayusculas = nombre.toUpperCase()
+var apellidoEnMinusculas = apellido.toLocaleLowerCase()
+var primeraLetraDelNombre =nombre.charAt(0)
+var cantidadDeLetrasDelNombre = nombre.length   
+var nombreCompleto = nombre +' '+ apellido
+var nombreCompletoInterpolacion = `${nombre} ${apellido.toUpperCase()}`
+var str = nombre.substr(1,2)
+var ultimaLetraDelNombre = nombre.charAt(nombre.length -1)
