@@ -25,8 +25,11 @@ var ids = [1,2,3,4,5,6,7]
 // })
 
 var promesas = ids.map(id => obtenerPersonaje(id))
-
-
+Promise
+    .all(promesas)
+    .then(personajes => console.log(personajes))
+    .catch(onError)
+    
 // obtenerPersonaje(1)
 //     .then(personaje=>{
 //         console.log(`El personaje 1 es ${personaje.name}`)
