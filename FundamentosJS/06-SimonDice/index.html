@@ -136,7 +136,7 @@
 
         inicializar() {
           btnEmpezar.classList.add('hide')
-          this.nivel = 1
+          this.nivel = 7
           this.colores = {
               celeste,
               violeta,
@@ -156,7 +156,7 @@
               return 'celeste'
             case 1:
               return 'violeta'
-            case 20:
+            case 2:
               return 'naranja'
             case 3:
               return 'verde'
@@ -165,11 +165,15 @@
         iluminarSecuencia(){
           for(var i = 0; i < this.nivel; i++){
             var color = this.transformarNumeroAColor(this.secuencia[i])
-            this.iluminarColor(color)
+            setTimeout(() => this.iluminarColor(color), 1000 * i) 
           }
         }
         iluminarColor(color){
-          
+          this.colores[color].classList.add('light')
+          setTimeout(()=>this.apagarColor(color),350)
+        }
+        apagarColor(color){
+          this.colores[color].classList.remove('light')
         }
       }
 
