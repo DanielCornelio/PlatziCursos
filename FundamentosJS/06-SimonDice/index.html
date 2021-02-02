@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Simon Dice</title>
     <style>
       body {
@@ -83,31 +83,31 @@
         display: none;
       }
       .btn-start {
-      cursor: pointer;
-      width: 420px;
-      height: 100px;
-      background: #ecf0f1;
-      color: #2c3e50;
-      border: none;
-      border-bottom: 4px solid #c4c6c7;
-      border-radius: 8px;
-      font-size: 3em;
-      position: absolute;
-      top: calc(50% - 50px);
-      left: calc(50% - 210px);
-      transition: .5s;
-      outline: none;
-    }
+        cursor: pointer;
+        width: 420px;
+        height: 100px;
+        background: #ecf0f1;
+        color: #2c3e50;
+        border: none;
+        border-bottom: 4px solid #c4c6c7;
+        border-radius: 8px;
+        font-size: 3em;
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 210px);
+        transition: 0.5s;
+        outline: none;
+      }
 
-    .btn-start:hover {
-      color: #ecf0f1;
-      background: #2c3e50;
-      border-bottom: 4px solid #1f3346;
-    }
-    
-    .btn-start:active {
-      transform: scale(.95);
-    }
+      .btn-start:hover {
+        color: #ecf0f1;
+        background: #2c3e50;
+        border-bottom: 4px solid #1f3346;
+      }
+
+      .btn-start:active {
+        transform: scale(0.95);
+      }
     </style>
   </head>
   <body>
@@ -116,7 +116,9 @@
       <div id="violeta" class="color violeta right" data-color="violeta"></div>
       <div id="naranja" class="color naranja left" data-color="naranja"></div>
       <div id="verde" class="color verde right" data-color="verde"></div>
-      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">
+        Empezar a jugar!
+      </button>
     </div>
     <script>
       const celeste = document.getElementById('celeste')
@@ -129,6 +131,7 @@
         constructor() {
           this.inicializar()
           this.generarSecuencia()
+          this.siguienteNivel()
         }
 
         inicializar() {
@@ -143,6 +146,30 @@
         }
         generarSecuencia(){
             this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
+        }
+        siguienteNivel(){
+          this.iluminarSecuencia()
+        }
+        transformarNumeroAColor(numero){
+          switch (numero) {
+            case 0:
+              return 'celeste'
+            case 1:
+              return 'violeta'
+            case 20:
+              return 'naranja'
+            case 3:
+              return 'verde'
+          }
+        }
+        iluminarSecuencia(){
+          for(var i = 0; i < this.nivel; i++){
+            var color = this.transformarNumeroAColor(this.secuencia[i])
+            this.iluminarColor(color)
+          }
+        }
+        iluminarColor(color){
+          
         }
       }
 
