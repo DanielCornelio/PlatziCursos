@@ -73,3 +73,86 @@ console.log(globalLet);
 
 const a = 'b';
 //con const no podré cambiar el valor si es que quiero asignarle otro string por ejemplo
+
+// Parámetros en objetos
+let name = 'oscar';
+let age = 32;
+
+//es5
+obj = { name: name, age: age };
+//es6
+obj2 = { name, age };
+console.log(obj2);
+
+// Arrow Functions
+const names = [
+  { name: 'Oscar', age: 32 },
+  { name: 'Yesica', age: 27 }
+]
+
+let listOfNames = names.map(function (item) {
+  console.log(item.name);
+})
+
+let listOfNames2 = names.map(item => console.log(item.name));
+
+const listOfNames3 = (name, age, country) => {
+  // ... 
+}
+
+const listOfNames4 = name => {
+  // ...
+}
+
+const square = num => num * num;
+
+// Promesas 
+const helloPromise = () => {
+  return new Promise((resolve, reject) => {
+    if (false) {
+      resolve('Hey!');
+    } else {
+      reject('Ups!!');
+    }
+  });
+}
+
+helloPromise()
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
+
+
+// clases
+class calculator {
+  constructor() {
+    this.valueA = 0;
+    this.valueB = 0;
+  }
+  sum(valueA, valueB) {
+    this.valueA = valueA;
+    this.valueB = valueB;
+    return this.valueA + this.valueB;
+  }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2, 2));
+
+// modulos
+const hello = require('./module')
+console.log(hello())
+
+// generadores
+
+function* helloWorld(){
+  if(true){
+    yield 'Hello, '
+  }
+  if(true){
+    yield 'World'
+  }
+}
+const generatorHello = helloWorld()
+console.log(generatorHello.next().value)
+console.log(generatorHello.next().value)
+console.log(generatorHello.next().value)
