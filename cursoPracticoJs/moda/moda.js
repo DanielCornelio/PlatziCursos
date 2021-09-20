@@ -1,13 +1,21 @@
-const lista1 = [1,2,3,4,1,2,4,2,2,2,3]
+const lista1 = [1,2,3,1,1,2,4,2,2,2,3]
+const data = [2,2,2,2,1,1,1,1,1,1,1,1,4,4,4,4,2,5,6,6,7,7]
 
-const lista1Count = {}
+function moda(lista){
+const listaCount = {}
 
-lista1.map((el)=>{
-    if(lista1Count[el]){
-        lista1Count[el] += 1
+lista.map((el)=>{
+    if(listaCount[el]){
+        listaCount[el] += 1
     }else{
-        lista1Count[el] = 1
+        listaCount[el] = 1
     }
 })
 
-const listaArr = Object.entries(lista1Count)
+const listaArr = Object.entries(listaCount).sort((valorAcumulado, nuevoValor)=>{
+    return valorAcumulado[1] - nuevoValor[1]
+})
+
+const moda = listaArr[listaArr.length -1]
+    return moda
+}
